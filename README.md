@@ -1,9 +1,9 @@
 # Framework to fast make REST API in 4 steps
 
 ### About framework / О фреймворке / Аб фрэймворке
-(EN) Hvilina Rest API Framework for handling HTTP requests and responses. It provides routing capabilities for general requests.
-(RU) Hvilina - это минималистичный Rest API PHP-фреймворк для обработки HTTP-запросов и ответов. Он предоставляет возможности маршрутизации для общих запросов.
-(BE) Hvilina - гэта мінімалістычны Rest API PHP-фрэймворк для апрацоўкі HTTP-запытаў і адказаў. Ён прадастаўляе магчымасці маршрутызацыі для агульных запытаў.
+(EN) Hvilina Rest API Framework for handling HTTP requests and responses. It provides routing capabilities for general requests.  
+(RU) Hvilina - это минималистичный Rest API PHP-фреймворк для обработки HTTP-запросов и ответов. Он предоставляет возможности маршрутизации для общих запросов.  
+(BE) Hvilina - гэта мінімалістычны Rest API PHP-фрэймворк для апрацоўкі HTTP-запытаў і адказаў. Ён прадастаўляе магчымасці маршрутызацыі для агульных запытаў.  
 
 ## How to use? / Как использовать? / Як выкарыстовываць?
 
