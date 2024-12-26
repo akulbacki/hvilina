@@ -1,4 +1,4 @@
-# Framework to fast make REST API in 4 steps
+# Tiny framework to make fast and easy REST API in few steps
 
 ### About framework / О фреймворке / Аб фрэймворке
 (EN) Hvilina Rest API Framework for handling HTTP requests and responses. It provides routing capabilities for general requests.  
