@@ -1,46 +1,62 @@
-# Tiny framework to make fast and easy REST API in few steps
+# Hvilina Rest API Framework
 
-### About framework / О фреймворке / Аб фрэймворке
-(EN) Hvilina Rest API Framework for handling HTTP requests and responses. It provides routing capabilities for general requests.  
-(RU) Hvilina - это минималистичный Rest API PHP-фреймворк для обработки HTTP-запросов и ответов. Он предоставляет возможности маршрутизации для общих запросов.  
-(BE) Hvilina - гэта мінімалістычны Rest API PHP-фрэймворк для апрацоўкі HTTP-запытаў і адказаў. Ён прадастаўляе магчымасці маршрутызацыі для агульных запытаў.  
+[EN](#english) | [BE](#беларуская, soon) | [RU](#русский, soon)
 
-## How to use? / Как использовать? / Як выкарыстовываць?
+---
 
-### English
-1. Create an instance of the `Hvilina` class;
-2. Define routes using the `get`, `post`, `put` or `delete` methods;
-3. Add content type header and set responce data method;
-4. Start listening for requests using the `listen` method.
+<a name="english"></a>
+## 🌍 English
 
-### HTML response:
+### A minimalistic PHP framework for building REST APIs and web applications.  
+**Version:** 1.2.0 | **Author:** Alexey Kulbacki | **License:** MIT
+
+### 🚀 Features
+- HTTP methods: GET, POST, PUT, DELETE
+- Dynamic routing (`/user/{id}`)
+- Request/Response handling
+- HTML template rendering
+- Custom headers and status codes
+- Built-in 404 handling
+
+### ⚙️ Examples:
 ```php
 <?php
-require 'hvilina.php';
+require_once 'hvilina.php';
+
+use Hvilina\Hvilina;
 
 $app = new Hvilina();
 
-$app->get('/rygor-baradulin', function($request, $response) {
-    $response->header('Content-Type', 'text/html');
+// Static route with JSON response with handle request data
+$app->get('/json', function($request, $response) {
 
-    $response->renderHTML('<h1>Трэба дома бываць часцей...</h1>');
+  $data = json_decode($request->body, true);
+  // Making magic with $data ...
+
+  // Set response type
+  $response->header('Content-Type', 'application/json');
+  // You can use or not status method when you need different than 200 page response code
+  $response->status(201)->renderText(["string" => "Без назвы", "number" => 30, "bool" => false]);
 });
 
-$app->listen();
-?>
-```
+// Dynamic route with Plant text response
+$app->get('/user/{id}', function ($request, $response) {
+  $response->renderText("User ID: " . $request->params['id']);
+});
 
-### JSON response:
-```php
-<?php
-require 'hvilina.php';
+// Ops, this page is not found
+$app->get('/404', function($request, $response) {
+  // Default method which already contain code 400 as page response code 
+  $response->notFound();
+});
 
-$app = new Hvilina();
-
-$app->get('/json', function($request, $response) {
-  $response->header('Content-Type', 'application/json');
-
-  $response->renderJSON('{"string":"Без назвы", "number":30, "bool":false}');
+// Template file with php variables
+$app->get('/about', function($request, $response) {
+  /*
+  this method send variable 'name' into file by using path 'views/about.php'
+  Ex. <h1><?= $name ?>!</h1>
+  */
+  $response->renderView('views/about.php', ['name' => 'About Framework']);
 });
 
 $app->listen();
