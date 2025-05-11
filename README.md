@@ -35,18 +35,18 @@ $app->get('/json', function($request, $response) {
 
   // Set response type
   $response->header('Content-Type', 'application/json');
-  // You can use or not status method when you need different than 200 page response code
+  // You can use or not status method when you need different than 200
   $response->status(201)->renderText(["string" => "Без назвы", "number" => 30, "bool" => false]);
 });
 
-// Dynamic route with Plant text response
+// Dynamic route with plant text response
 $app->get('/user/{id}', function ($request, $response) {
   $response->renderText("User ID: " . $request->params['id']);
 });
 
 // Ops, this page is not found
 $app->get('/404', function($request, $response) {
-  // Default method which already contain code 400 as page response code 
+  // Default method which already contain code 404 as page response code 
   $response->notFound();
 });
 
@@ -88,7 +88,7 @@ use Hvilina\Hvilina;
 
 $app = new Hvilina();
 
-// Статычны маршрут з адказам JSON з дадзенымі запыту дэсктопу
+// Статычны маршрут з тэкставым адказам у фармаце JSON
 $app->get('/json', function($request, $response) {
 
   $data = json_decode($request->body, true);
@@ -96,18 +96,18 @@ $app->get('/json', function($request, $response) {
 
   // Усталёўваем тып адказу
   $response->header('Content-Type', 'application/json');
-  // Вы можаце выкарыстоўваць ці не выкарыстоўваць метад status, калі вам патрэбны код адказу, які адрозніваецца ад 200 старонак
+  // Вы можаце выкарыстоўваць ці не выкарыстоўваць метад status, калі вам патрэбны код адказу, які адрозніваецца ад 200
   $response->status(201)->renderText(["string" => "Без назвы", "number" => 30, "bool" => false]);
 });
 
-// Дынамічны маршрут з тэкставым адказам расліны
+// Дынамічны маршрут з тэкставым адказам 
 $app->get('/user/{id}', function ($request, $response) {
   $response->renderText("User ID: " . $request->params['id']);
 });
 
 // Ой, гэтая старонка не знойдзена
 $app->get('/404', function($request, $response) {
-  // Метад па змаўчанні, які ўжо змяшчае код 400 у якасці кода адказу старонкі
+  // Метад па змаўчанні, які ўжо мае код 404 у якасці адказу старонкі
   $response->notFound();
 });
 
@@ -150,7 +150,7 @@ use Hvilina\Hvilina;
 
 $app = new Hvilina();
 
-// Статический маршрут с ответом JSON с данными запроса рабочего стола
+// Статический маршрут с текстовым ответом в JSON формате
 $app->get('/json', function($request, $response) {
 
   $data = json_decode($request->body, true);
@@ -158,18 +158,18 @@ $app->get('/json', function($request, $response) {
 
   // Задайте тип ответа
   $response->header('Content-Type', 'application/json');
-  // Вы можете использовать или не использовать метод status, если вам нужен код ответа, отличный от 200 страниц
+  // Вы можете использовать или не использовать метод status, если вам нужен код ответа, отличный от 200
   $response->status(201)->renderText(["string" => "Untitled", "number" => 30, "bool" => false]);
 });
 
-// Динамический маршрут с текстовым ответом от завода
+// Динамический маршрут с текстовым ответом в формате текст
 $app->get('/user/{id}', function ($request, $response) {
   $response->renderText("User ID: " . $request->params['id']);
 });
 
 // Упс, эта страница не найдена
 $app->get('/404', function($request, $response) {
-  // Метод по умолчанию, который уже содержит код 400 в качестве кода ответа страницы
+  // Метод по умолчанию, который уже содержит код 404 в качестве ответа страницы
   $response->notFound();
 });
 
